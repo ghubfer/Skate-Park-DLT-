@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+{{>Head}}
+
+<body>
+
+  {{>Navbar}}
+
+  <header class="container-fluid">
+
+    <div class="row" id="titulosHeader">
+
+      <div class="col-sm-6">
+        <h1 id="tituloHeader">Skate Park</h1>
+      </div>
+
+      <div class="col-sm-6">
+        <h3 id="header1">¿Aún no estás inscrito?</h3>
+        <a href="/register" id="botonRegistrate">Registrate</a>
+      </div>
+
+    </div>
+
+  </header>
+
+  <div id="seccionLista" class="container">
+
+    <div class="row">
+
+      <div id="listaParticipantes" class="col-12 col-lg-8 py-4">
+
+        <h2 id="tituloLista">Lista de participantes</h2>
+
+        <hr />
+
+        <table id="tablaInicio" class="table table-dark">
+
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Foto</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Años de experiencia</th>
+              <th scope="col">Especialidad</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr class="tbody">
+              <th scope="row">1</th>
+              <td>
+                <div style='background-image: url("/img/tony.jpg");'></div>
+              </td>
+              <td>Tony Hawk</td>
+              <td>12</td>
+              <td>Kickflip</td>
+              <td class="text-success font-weight-bold">Aprobado</td>
+            </tr>
+
+            <tr class="tbody">
+              <th scope="row">2</th>
+              <td>
+                <div style='background-image: url("/img/Evelien.jpg");'></div>
+              </td>
+              <td>Evelien Bouilliart</td>
+              <td>10</td>
+              <td>Heelflip</td>
+              <td class="text-success font-weight-bold">Aprobado</td>
+            </tr>
+
+            <tr class="tbody">
+              <th scope="row">3</th>
+              <td>
+                <div style='background-image: url("/img/Danny.jpg");'></div>
+              </td>
+              <td>Danny Way</td>
+              <td>8</td>
+              <td>Ollie</td>
+              <td class="text-warning font-weight-bold">En revisión</td>
+            </tr>
+
+            {{#each usuarios}}
+
+            <tr>
+              <th scope="row">{{inc @index}}</th>
+              <td>
+                <div style="background-image: url('/img/{{this.foto}}');"></div>
+              </td>
+              <td>{{this.nombre}}</td>
+              <td>{{this.anos_experiencia}}</td>
+              <td>{{this.especialidad}}</td>
+              <td id="estadoSkater" {{#if this.estado}}class="text-success font-weight-bold"
+                {{else}}class="text-warning font-weight-bold" {{/if}}>{{#if this.estado}} Aprobado {{else}} En Revisión
+                {{/if}}</td>
+            </tr>
+
+            {{/each}}
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="col-12 col-lg-4 mt-5">
+
+        <img id="imagenSkater" src="/img/580b585b2edbce24c47b2b78.png" alt="">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {{>Footer}}
+
+  {{>BodyCDN}}
+
+</body>
+
+</html>

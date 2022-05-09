@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  {{>Head}}
+
+  <body>
+
+    <h1 class="pt-5" id="datosTitulo">Skate Park</h1>
+
+    <div id="datosForm" class="py-4">
+
+      <h2 id="datosSubtitulo">Datos del perfil</h2>
+      <hr class="w-50 mx-auto" />
+
+      <form>
+
+        <div class="form-group row w-50 m-auto">
+
+          {{#if datos}}
+          <div class="form-group col-12 col-sm-6">
+
+            <input id="datosId" value="{{datos.id}}" type="hidden">
+            <input id="datosFoto" value="{{datos.foto}}" type="hidden">
+
+            <label>Email</label>
+            <input
+              class="form-control m-auto"
+              disabled
+              value="{{datos.email}}"
+            />
+          </div>
+
+          <div class="form-group col-12 col-sm-6">
+            <label>Nombre</label>
+            <input
+            id="datosNombre"
+            class="form-control m-auto"
+            value="{{datos.nombre}}"
+            />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 pt-3">
+            <label>Password</label>
+            <input
+              id="datosPassword"
+              type="password"
+              class="form-control m-auto"
+              value="{{datos.contrasena}}"
+            />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 pt-3">
+            <label>Repita la password</label>
+            <input
+              id="datosConfirm"
+              type="password"
+              class="form-control m-auto"
+              value="{{datos.contrasena}}"
+            />
+          </div>
+
+          <div class="form-group col-12 col-sm-6 pt-3">
+            <label>Años de experiencia</label>
+            <input
+            id="datosAnios"
+            class="form-control m-auto"
+            value="{{datos.anos_experiencia}}"
+            />
+          </div>
+          
+          <div class="form-group col-12 col-sm-6 pt-3">
+            <label>Especialidad</label>
+            <input
+            id="datosEspecialidad"
+            class="form-control m-auto"
+            value="{{datos.especialidad}}"
+            />
+          </div>
+          {{/if}}
+
+        </div>
+
+        <div class="mb-1">
+          <button id="botonActualizar" class="btn btn-primary mt-4">Actualizar</button>
+        </div>
+
+        <div>
+          <button id="botonBorrar" class="btn btn-danger mt-4">Eliminar cuenta</button>
+        </div>
+
+      </form>
+
+    </div>
+
+    {{>BodyCDN}}
+
+  </body>
+
+</html>
